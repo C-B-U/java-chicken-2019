@@ -18,6 +18,13 @@ public class MenuRepository {
         menus.add(new Menu(22, "사이다", Category.BEVERAGE, 1_000));
     }
 
+    public static Menu findMenuByNumber(int number) {
+        return menus.stream()
+                .filter((menu) -> menu.isExist(number))
+                .findAny()
+                .orElseThrow();
+    }
+
     public static List<Menu> menus() {
         return Collections.unmodifiableList(menus);
     }

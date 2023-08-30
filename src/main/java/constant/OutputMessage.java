@@ -4,7 +4,8 @@ public enum OutputMessage {
 
     MAIN_OPTION("메인화면"),
     OPTION_SELECT("원하는 기능을 선택하세요."),
-    TABLE_SELECT("테이블을 선택하세요.");
+    TABLE_SELECT("테이블을 선택하세요."),
+    MENU("등록할 메뉴를 선택하세요.");
 
     private static final String PREFIX = "## ";
     private final String message;
