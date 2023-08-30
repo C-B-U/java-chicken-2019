@@ -1,9 +1,6 @@
 package controller;
 
-import domain.MainOptions;
-import domain.Menu;
-import domain.MenuRepository;
-import domain.TableRepository;
+import domain.*;
 import view.InputView;
 import view.OutputView;
 
@@ -17,7 +14,7 @@ public class ChickenController {
                 break;
             }
             OutputView.printTables(TableRepository.tables());
-            int table = InputView.inputTableNumber();
+            Table table = InputView.inputTableNumber();
             OutputView.printMenus(MenuRepository.menus());
             Menu menu = InputView.inputMenu();
         }

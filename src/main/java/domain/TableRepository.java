@@ -1,5 +1,7 @@
 package domain;
 
+import constant.ExceptionMessage;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,6 +16,13 @@ public class TableRepository {
         tables.add(new Table(5));
         tables.add(new Table(6));
         tables.add(new Table(8));
+    }
+
+    public static Table findMenuByNumber(int number) {
+        return tables.stream()
+                .filter((table) -> table.isExist(number))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_EXIST_TABLE.toString()));
     }
 
     public static List<Table> tables() {

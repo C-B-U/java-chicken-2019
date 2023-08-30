@@ -1,9 +1,7 @@
 package view;
 
 import constant.OutputMessage;
-import domain.MainOptions;
-import domain.Menu;
-import domain.MenuRepository;
+import domain.*;
 
 import java.util.Scanner;
 
@@ -16,9 +14,9 @@ public class InputView {
         return MainOptions.getMainOptions(input);
     }
 
-    public static int inputTableNumber() {
+    public static Table inputTableNumber() {
         System.out.println("## 주문할 테이블을 선택하세요.");
-        return scanner.nextInt();
+        return TableRepository.findMenuByNumber(scanner.nextInt());
     }
 
     public static Menu inputMenu() {
