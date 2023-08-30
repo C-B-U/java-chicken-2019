@@ -1,6 +1,7 @@
 package controller;
 
 import domain.MainOptions;
+import domain.TableRepository;
 import view.InputView;
 import view.OutputView;
 
@@ -13,6 +14,8 @@ public class ChickenController {
             if (option.isTermination()) {
                 break;
             }
+            OutputView.printTables(TableRepository.tables());
+            int table = InputView.inputTableNumber();
         }
     }
 }
