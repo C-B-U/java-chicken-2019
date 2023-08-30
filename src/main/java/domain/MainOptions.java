@@ -1,5 +1,6 @@
 package domain;
 
+import constant.ExceptionMessage;
 import constant.PrintElement;
 
 import java.util.Arrays;
@@ -22,7 +23,7 @@ public enum MainOptions {
         return Arrays.stream(MainOptions.values())
                 .filter(option -> input == option.choice)
                 .findAny()
-                .orElseThrow();
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.INCORRECT_MAIN_OPTION.toString()));
     }
 
     public static String printValues() {
