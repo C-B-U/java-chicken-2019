@@ -1,5 +1,7 @@
 package domain;
 
+import constant.ExceptionMessage;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -22,7 +24,7 @@ public class MenuRepository {
         return menus.stream()
                 .filter((menu) -> menu.isExist(number))
                 .findAny()
-                .orElseThrow();
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_EXIST_MENU.toString()));
     }
 
     public static List<Menu> menus() {
