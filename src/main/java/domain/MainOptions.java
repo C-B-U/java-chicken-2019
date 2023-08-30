@@ -18,6 +18,13 @@ public enum MainOptions {
         this.title = title;
     }
 
+    public static MainOptions getMainOptions(int input) {
+        return Arrays.stream(MainOptions.values())
+                .filter(option -> input == option.choice)
+                .findAny()
+                .orElseThrow();
+    }
+
     public static String printValues() {
         StringBuilder stringBuilder = new StringBuilder();
         Arrays.stream(MainOptions.values())

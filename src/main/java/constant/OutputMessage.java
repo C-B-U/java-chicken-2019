@@ -2,7 +2,8 @@ package constant;
 
 public enum OutputMessage {
 
-    MAIN_OPTION("메인화면");
+    MAIN_OPTION("메인화면"),
+    OPTION_SELECT("원하는 기능을 선택하세요.");
 
     private static final String PREFIX = "## ";
     private final String message;
