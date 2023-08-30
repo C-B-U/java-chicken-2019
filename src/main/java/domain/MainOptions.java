@@ -26,6 +26,10 @@ public enum MainOptions {
                 .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.INCORRECT_MAIN_OPTION.toString()));
     }
 
+    public boolean isTermination() {
+        return this == TERMINATION;
+    }
+
     public static String printValues() {
         StringBuilder stringBuilder = new StringBuilder();
         Arrays.stream(MainOptions.values())

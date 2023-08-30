@@ -8,6 +8,11 @@ public class ChickenController {
 
     public void start() {
         OutputView.printMainOption();
-        MainOptions option = InputView.inputMainOption();
+        while (true) {
+            MainOptions option = InputView.inputMainOption();
+            if (option.isTermination()) {
+                break;
+            }
+        }
     }
 }
