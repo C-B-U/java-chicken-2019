@@ -21,4 +21,8 @@ public enum PaymentType {
                 .findAny()
                 .orElseThrow();
     }
+
+    public double getDiscountRate() {
+        return discountRate;
+    }
 }

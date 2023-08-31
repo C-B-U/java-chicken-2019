@@ -9,7 +9,8 @@ public enum OutputMessage {
     QUANTITY("메뉴의 수량을 입력하세요."),
     ORDER_HISTORY("주문 내역"),
     PAYMENT_START("%s번 테이블의 결제를 진행합니다"),
-    PAYMENT_METHOD("신용 카드는 1번, 현금은 2번");
+    PAYMENT_METHOD("신용 카드는 1번, 현금은 2번"),
+    TOTAL_PRICE("최종 결제할 금액");
 
     private static final String PREFIX = "## ";
     private final String message;

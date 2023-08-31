@@ -37,6 +37,21 @@ public class Table {
         }
     }
 
+    public int totalPrice() {
+        return order.keySet()
+                .stream()
+                .filter(menu -> order.get(menu) != DEFAULT)
+                .mapToInt(menu -> order.get(menu) * menu.getPrice())
+                .sum();
+    }
+
+    public int discountChicken() {
+        return order.keySet()
+                .stream()
+                .filter(Menu::isChicken)
+                .mapToInt(order::get)
+                .sum();
+    }
     @Override
     public String toString() {
         return Integer.toString(number);
@@ -59,6 +74,7 @@ public class Table {
                                 .append(order.get(menu))
                                 .append(PrintElement.BLANK)
                                 .append(menu.getPrice())
+                                .append(PrintElement.NEW_LINE)
                 );
     }
 }
