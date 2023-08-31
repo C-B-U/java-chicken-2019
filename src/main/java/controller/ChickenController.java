@@ -7,6 +7,8 @@ import view.OutputView;
 
 public class ChickenController {
 
+    private final ChickenService service = new ChickenService();
+
     public void start() {
         OutputView.printMainOption();
         while (true) {
@@ -19,6 +21,7 @@ public class ChickenController {
             OutputView.printMenus(MenuRepository.menus());
             Menu menu = InputView.inputMenu();
             int quantity = InputView.inputQuantity();
+            service.order(table, menu, quantity);
         }
     }
 }

@@ -25,6 +25,11 @@ public class TableRepository {
                 .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_EXIST_TABLE.toString()));
     }
 
+    public void addMenu(int number, Menu menu, int quantity) {
+        Table table = findMenuByNumber(number);
+        table.addMenu(menu, quantity);
+    }
+
     public static List<Table> tables() {
         return Collections.unmodifiableList(tables);
     }
