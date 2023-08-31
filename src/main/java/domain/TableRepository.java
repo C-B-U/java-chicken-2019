@@ -18,7 +18,7 @@ public class TableRepository {
         tables.add(new Table(8));
     }
 
-    public static Table findMenuByNumber(int number) {
+    public static Table findByTableNumber(int number) {
         return tables.stream()
                 .filter((table) -> table.isExist(number))
                 .findAny()
@@ -26,7 +26,7 @@ public class TableRepository {
     }
 
     public void addMenu(int number, Menu menu, int quantity) {
-        Table table = findMenuByNumber(number);
+        Table table = findByTableNumber(number);
         table.addMenu(menu, quantity);
     }
 
