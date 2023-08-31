@@ -65,4 +65,8 @@ public class OutputView {
         System.out.println(payment);
         System.out.println();
     }
+
+    public static void printExceptionMessage(String exceptionMessage) {
+        System.out.println(exceptionMessage);
+    }
 }

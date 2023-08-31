@@ -10,14 +10,18 @@ public class ChickenController {
     private final ChickenService service = new ChickenService();
 
     public void start() {
-        while (true) {
-            OutputView.printMainOption();
-            MainOptions option = InputView.inputMainOption();
-            if (option.isTermination()) {
-                break;
+        try {
+            while (true) {
+                OutputView.printMainOption();
+                MainOptions option = InputView.inputMainOption();
+                if (option.isTermination()) {
+                    break;
+                }
+                orderMenu(option);
+                payment(option);
             }
-            orderMenu(option);
-            payment(option);
+        } catch (IllegalArgumentException exception) {
+            OutputView.printExceptionMessage(exception.getMessage());
         }
     }
 
