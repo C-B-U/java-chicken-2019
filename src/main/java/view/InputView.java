@@ -3,6 +3,7 @@ package view;
 import constant.OutputMessage;
 import constant.PaymentType;
 import domain.*;
+import validator.InputValidator;
 
 import java.util.Scanner;
 
@@ -11,35 +12,40 @@ public class InputView {
 
     public static MainOptions inputMainOption() {
         System.out.println(OutputMessage.OPTION_SELECT);
-        int input = scanner.nextInt();
+        String input = scanner.nextLine();
+        InputValidator.validateNumber(input);
         System.out.println();
-        return MainOptions.getMainOptions(input);
+        return MainOptions.getMainOptions(Integer.parseInt(input));
     }
 
     public static int inputTableNumber() {
         System.out.println("## 주문할 테이블을 선택하세요.");
-        int tableNumber = scanner.nextInt();
+        String tableNumber = scanner.nextLine();
+        InputValidator.validateNumber(tableNumber);
         System.out.println();
-        return tableNumber;
+        return Integer.parseInt(tableNumber);
     }
 
     public static Menu inputMenu() {
         System.out.println(OutputMessage.MENU);
-        int input = scanner.nextInt();
+        String input = scanner.nextLine();
+        InputValidator.validateNumber(input);
         System.out.println();
-        return MenuRepository.findMenuByNumber(input);
+        return MenuRepository.findMenuByNumber(Integer.parseInt(input));
     }
 
     public static int inputQuantity() {
         System.out.println(OutputMessage.QUANTITY);
-        int quantity = scanner.nextInt();
+        String input = scanner.nextLine();
+        InputValidator.validateNumber(input);
         System.out.println();
-        return quantity;
+        return Integer.parseInt(input);
     }
 
     public static PaymentType inputPayment() {
-        int payment = scanner.nextInt();
+        String input = scanner.nextLine();
+        InputValidator.validateNumber(input);
         System.out.println();
-        return PaymentType.getPaymentType(payment);
+        return PaymentType.getPaymentType(Integer.parseInt(input));
     }
 }
