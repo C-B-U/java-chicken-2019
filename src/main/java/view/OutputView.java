@@ -24,6 +24,7 @@ public class OutputView {
         printLine(TOP_LINE, size);
         printTableNumbers(tables);
         printLine(BOTTOM_LINE, size);
+        System.out.println();
     }
 
     public static void printMenus(final List<Menu> menus) {
@@ -50,6 +51,7 @@ public class OutputView {
     public static void printOrderHistory(final Table table) {
         System.out.println(OutputMessage.ORDER_HISTORY);
         System.out.println(table.printMenu());
+        System.out.println();
     }
 
     public static void printPayment(final Table table) {
@@ -61,5 +63,6 @@ public class OutputView {
     public static void printTotalPrice(Payment payment) {
         System.out.println(OutputMessage.TOTAL_PRICE);
         System.out.println(payment);
+        System.out.println();
     }
 }

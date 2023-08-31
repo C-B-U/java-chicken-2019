@@ -12,26 +12,34 @@ public class InputView {
     public static MainOptions inputMainOption() {
         System.out.println(OutputMessage.OPTION_SELECT);
         int input = scanner.nextInt();
+        System.out.println();
         return MainOptions.getMainOptions(input);
     }
 
     public static int inputTableNumber() {
         System.out.println("## 주문할 테이블을 선택하세요.");
-        return scanner.nextInt();
+        int tableNumber = scanner.nextInt();
+        System.out.println();
+        return tableNumber;
     }
 
     public static Menu inputMenu() {
         System.out.println(OutputMessage.MENU);
         int input = scanner.nextInt();
+        System.out.println();
         return MenuRepository.findMenuByNumber(input);
     }
 
     public static int inputQuantity() {
         System.out.println(OutputMessage.QUANTITY);
-        return scanner.nextInt();
+        int quantity = scanner.nextInt();
+        System.out.println();
+        return quantity;
     }
 
     public static PaymentType inputPayment() {
-        return PaymentType.getPaymentType(scanner.nextInt());
+        int payment = scanner.nextInt();
+        System.out.println();
+        return PaymentType.getPaymentType(payment);
     }
 }
