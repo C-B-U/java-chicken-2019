@@ -45,4 +45,9 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public static void printOrderHistory(final Table table) {
+        System.out.println(OutputMessage.ORDER_HISTORY);
+        System.out.println(table.printMenu());
+    }
 }

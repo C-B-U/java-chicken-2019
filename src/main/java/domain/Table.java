@@ -1,6 +1,7 @@
 package domain;
 
 import constant.ExceptionMessage;
+import constant.PrintElement;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,5 +40,25 @@ public class Table {
     @Override
     public String toString() {
         return Integer.toString(number);
+    }
+
+    public String printMenu() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(PrintElement.HISTORY_CONFIG).append(PrintElement.NEW_LINE);
+        appendMenu(stringBuilder);
+        return stringBuilder.toString();
+    }
+
+    private void appendMenu(StringBuilder stringBuilder) {
+        order.keySet()
+                .stream()
+                .filter(key -> order.get(key) != DEFAULT)
+                .forEach(menu ->
+                        stringBuilder.append(menu.getName())
+                                .append(PrintElement.BLANK)
+                                .append(order.get(menu))
+                                .append(PrintElement.BLANK)
+                                .append(menu.getPrice())
+                );
     }
 }

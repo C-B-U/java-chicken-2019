@@ -30,6 +30,14 @@ public enum MainOptions {
         return this == TERMINATION;
     }
 
+    public boolean isOrder() {
+        return this == ORDER_REGISTRATION;
+    }
+
+    public boolean isPayment() {
+        return this == PAYMENT;
+    }
+
     public static String printValues() {
         StringBuilder stringBuilder = new StringBuilder();
         Arrays.stream(MainOptions.values())

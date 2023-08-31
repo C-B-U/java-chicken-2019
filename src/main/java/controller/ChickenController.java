@@ -10,18 +10,36 @@ public class ChickenController {
     private final ChickenService service = new ChickenService();
 
     public void start() {
-        OutputView.printMainOption();
         while (true) {
+            OutputView.printMainOption();
             MainOptions option = InputView.inputMainOption();
             if (option.isTermination()) {
                 break;
             }
+            orderMenu(option);
+            payment(option);
+        }
+    }
+
+    private void orderMenu(MainOptions options) {
+        if (options.isOrder()) {
             OutputView.printTables(TableRepository.tables());
             int table = InputView.inputTableNumber();
             OutputView.printMenus(MenuRepository.menus());
             Menu menu = InputView.inputMenu();
             int quantity = InputView.inputQuantity();
             service.order(table, menu, quantity);
+        }
+    }
+
+    private void payment(MainOptions options) {
+        if (options.isPayment()) {
+            OutputView.printTables(TableRepository.tables());
+            int table = InputView.inputTableNumber();
+            OutputView.printOrderHistory(service.findByTableNumber(table));
+            // 카드, 현금 선택
+
+            // 최종 결제할 금액을 출력
         }
     }
 }
