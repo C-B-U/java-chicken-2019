@@ -17,6 +17,10 @@ public class Menu {
         return number == this.number;
     }
 
+    public boolean isChicken() {
+        return category.isChicken();
+    }
+
     public String getName() {
         return name;
     }

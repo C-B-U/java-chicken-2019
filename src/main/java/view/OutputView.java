@@ -3,6 +3,7 @@ package view;
 import constant.OutputMessage;
 import domain.MainOptions;
 import domain.Menu;
+import domain.Payment;
 import domain.Table;
 
 import java.util.List;
@@ -55,5 +56,10 @@ public class OutputView {
         System.out.printf(OutputMessage.PAYMENT_START.toString(), table);
         System.out.println();
         System.out.println(OutputMessage.PAYMENT_METHOD);
+    }
+
+    public static void printTotalPrice(Payment payment) {
+        System.out.println(OutputMessage.TOTAL_PRICE);
+        System.out.println(payment);
     }
 }

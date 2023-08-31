@@ -1,6 +1,5 @@
 package controller;
 
-import constant.PaymentType;
 import domain.*;
 import service.ChickenService;
 import view.InputView;
@@ -36,13 +35,10 @@ public class ChickenController {
     private void payment(MainOptions options) {
         if (options.isPayment()) {
             OutputView.printTables(TableRepository.tables());
-            int table = InputView.inputTableNumber();
-            OutputView.printOrderHistory(service.findByTableNumber(table));
-            // 카드, 현금 선택
-            OutputView.printPayment(service.findByTableNumber(table));
-            PaymentType type = InputView.inputPayment();
-            System.out.println(type);
-            // 최종 결제할 금액을 출력
+            Table table = service.findByTableNumber(InputView.inputTableNumber());
+            OutputView.printOrderHistory(table);
+            OutputView.printPayment(table);
+            OutputView.printTotalPrice(service.payment(table, InputView.inputPayment()));
         }
     }
 }
