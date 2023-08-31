@@ -14,14 +14,19 @@ public class InputView {
         return MainOptions.getMainOptions(input);
     }
 
-    public static Table inputTableNumber() {
+    public static int inputTableNumber() {
         System.out.println("## 주문할 테이블을 선택하세요.");
-        return TableRepository.findMenuByNumber(scanner.nextInt());
+        return scanner.nextInt();
     }
 
     public static Menu inputMenu() {
         System.out.println(OutputMessage.MENU);
         int input = scanner.nextInt();
         return MenuRepository.findMenuByNumber(input);
+    }
+
+    public static int inputQuantity() {
+        System.out.println(OutputMessage.QUANTITY);
+        return scanner.nextInt();
     }
 }
