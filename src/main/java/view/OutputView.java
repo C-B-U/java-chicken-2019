@@ -50,4 +50,10 @@ public class OutputView {
         System.out.println(OutputMessage.ORDER_HISTORY);
         System.out.println(table.printMenu());
     }
+
+    public static void printPayment(final Table table) {
+        System.out.printf(OutputMessage.PAYMENT_START.toString(), table);
+        System.out.println();
+        System.out.println(OutputMessage.PAYMENT_METHOD);
+    }
 }

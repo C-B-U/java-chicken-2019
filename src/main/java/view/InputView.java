@@ -1,6 +1,7 @@
 package view;
 
 import constant.OutputMessage;
+import constant.PaymentType;
 import domain.*;
 
 import java.util.Scanner;
@@ -28,5 +29,9 @@ public class InputView {
     public static int inputQuantity() {
         System.out.println(OutputMessage.QUANTITY);
         return scanner.nextInt();
+    }
+
+    public static PaymentType inputPayment() {
+        return PaymentType.getPaymentType(scanner.nextInt());
     }
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import constant.PaymentType;
 import domain.*;
 import service.ChickenService;
 import view.InputView;
@@ -38,7 +39,9 @@ public class ChickenController {
             int table = InputView.inputTableNumber();
             OutputView.printOrderHistory(service.findByTableNumber(table));
             // 카드, 현금 선택
-
+            OutputView.printPayment(service.findByTableNumber(table));
+            PaymentType type = InputView.inputPayment();
+            System.out.println(type);
             // 최종 결제할 금액을 출력
         }
     }
