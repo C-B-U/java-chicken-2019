@@ -40,4 +40,17 @@ public class OrderTest {
 
         assertThat(order.hasOrder()).isFalse();
     }
+
+    @DisplayName("현재 주문된 메뉴들의 총 금액을 반환한다.")
+    @Test
+    void getTotalPrice() {
+        Order order = new Order();
+        Menu menu = MenuRepository.findMenuByNumber(1);
+        int quantity = 3;
+        order.addMenu(menu, quantity);
+
+        int price = order.totalPrice();
+
+        assertThat(price).isEqualTo(48000);
+    }
 }
