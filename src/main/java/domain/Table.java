@@ -34,7 +34,7 @@ public class Table {
         return totalPrice;
     }
 
-    public int calculateTotalPrice(PaymentType type) {
+    private int calculateTotalPrice(PaymentType type) {
         return (int) ((totalPrice() - chickenDiscount()) * type.getDiscountRate());
     }
 
