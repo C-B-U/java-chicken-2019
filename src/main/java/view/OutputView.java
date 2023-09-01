@@ -1,9 +1,9 @@
 package view;
 
 import constant.OutputMessage;
+import constant.PrintElement;
 import domain.MainOptions;
 import domain.Menu;
-import domain.Payment;
 import domain.Table;
 
 import java.util.List;
@@ -72,9 +72,9 @@ public class OutputView {
         System.out.println(OutputMessage.PAYMENT_METHOD);
     }
 
-    public static void printTotalPrice(Payment payment) {
+    public static void printTotalPrice(int price) {
         System.out.println(OutputMessage.TOTAL_PRICE);
-        System.out.println(payment);
+        System.out.printf(PrintElement.TOTAL_PRICE.toString(), price);
         System.out.println();
     }
 

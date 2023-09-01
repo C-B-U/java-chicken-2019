@@ -45,7 +45,7 @@ public class Order {
                 .anyMatch(menu -> order.get(menu) != DEFAULT);
     }
 
-    public int discountChicken() {
+    public int chickenNumber() {
         return order.keySet()
                 .stream()
                 .filter(Menu::isChicken)

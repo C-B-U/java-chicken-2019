@@ -1,6 +1,10 @@
 package domain;
 
+import constant.PaymentType;
+
 public class Table {
+
+    private static final int DISCOUNT_PRICE = 10000;
 
     private final int number;
     private final Order order;
@@ -18,24 +22,35 @@ public class Table {
         order.addMenu(menu, quantity);
     }
 
-    public int totalPrice() {
-        return order.totalPrice();
-    }
-
     public boolean hasOrder() {
         return order.hasOrder();
     }
 
+
+    public int payment(PaymentType type) {
+        int totalPrice = calculateTotalPrice(type);
+        order.payment();
+        return totalPrice;
+    }
+
+    public int calculateTotalPrice(PaymentType type) {
+        return (int) ((totalPrice() - chickenDiscount()) * type.getDiscountRate());
+    }
+
+    private int totalPrice() {
+        return order.totalPrice();
+    }
+
+    private int chickenDiscount() {
+        return discountChicken() / 10 * DISCOUNT_PRICE;
+    }
+
     public int discountChicken() {
-        return order.discountChicken();
+        return order.chickenNumber();
     }
 
     public String getOrderHistory() {
         return order.toString();
-    }
-
-    public void payment() {
-        order.payment();
     }
 
     @Override

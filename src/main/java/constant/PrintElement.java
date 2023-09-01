@@ -6,7 +6,7 @@ public enum PrintElement {
     NEW_LINE("\n"),
     HISTORY_CONFIG("메뉴 수량 금액"),
     BLANK(" "),
-    TOTAL_PRICE("%d원");
+    TOTAL_PRICE("%d원\n");
 
     private final String message;
 

@@ -2,7 +2,6 @@ package service;
 
 import constant.PaymentType;
 import domain.Menu;
-import domain.Payment;
 import domain.Table;
 import domain.TableRepository;
 
@@ -14,11 +13,10 @@ public class ChickenService {
         tableRepository.addMenu(tableNumber, menu, quantity);
     }
 
-    public Payment payment(Table table, PaymentType type) {
-        Payment payment = new Payment(table, type);
-        table.payment();
-        return payment;
+    public int payment(Table table, PaymentType type) {
+        return table.payment(type);
     }
+
     public Table findByTableNumber(int tableNumber) {
         return TableRepository.findByTableNumber(tableNumber);
     }
