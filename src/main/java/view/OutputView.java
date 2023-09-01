@@ -12,6 +12,7 @@ public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
+    private static final String MARK_BOTTOM_LINE = "└ # ┘";
 
     public static void printMainOption() {
         System.out.println(OutputMessage.MAIN_OPTION);
@@ -23,7 +24,7 @@ public class OutputView {
         final int size = tables.size();
         printLine(TOP_LINE, size);
         printTableNumbers(tables);
-        printLine(BOTTOM_LINE, size);
+        printBottomLine(tables);
         System.out.println();
     }
 
@@ -37,6 +38,17 @@ public class OutputView {
     private static void printLine(final String line, final int count) {
         for (int index = 0; index < count; index++) {
             System.out.print(line);
+        }
+        System.out.println();
+    }
+
+    private static void printBottomLine(final List<Table> tables) {
+        for (Table table: tables) {
+            if(table.hasOrder()) {
+                System.out.print(MARK_BOTTOM_LINE);
+                continue;
+            }
+            System.out.print(BOTTOM_LINE);
         }
         System.out.println();
     }

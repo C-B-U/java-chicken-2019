@@ -45,6 +45,12 @@ public class Table {
                 .sum();
     }
 
+    public boolean hasOrder() {
+        return order.keySet()
+                .stream()
+                .anyMatch(menu -> order.get(menu) != DEFAULT);
+    }
+
     public int discountChicken() {
         return order.keySet()
                 .stream()
