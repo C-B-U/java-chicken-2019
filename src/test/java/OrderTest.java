@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class OrderTest {
 
@@ -52,5 +53,16 @@ public class OrderTest {
         int price = order.totalPrice();
 
         assertThat(price).isEqualTo(48000);
+    }
+
+    @DisplayName("같은 메뉴를 100개 이상 주문할 경우 예외 발생")
+    @Test
+    void orderException() {
+        Order order = new Order();
+        Menu menu = MenuRepository.findMenuByNumber(1);
+        int quantity = 100;
+
+        assertThatThrownBy(() -> order.addMenu(menu, quantity))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
