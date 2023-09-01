@@ -15,7 +15,9 @@ public class ChickenService {
     }
 
     public Payment payment(Table table, PaymentType type) {
-        return new Payment(table, type);
+        Payment payment = new Payment(table, type);
+        table.payment();
+        return payment;
     }
     public Table findByTableNumber(int tableNumber) {
         return TableRepository.findByTableNumber(tableNumber);
