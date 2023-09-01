@@ -13,4 +13,14 @@ class InputValidTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR);
     }
+
+    @Test
+    @DisplayName("테이블 숫자가 옳지 않으면 오류가 발생한다.")
+    void validateTableListNumber(){
+        TableList tableList = new TableList();
+
+        assertThatThrownBy(() -> tableList.validateTableNumber(7))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR);
+    }
 }
