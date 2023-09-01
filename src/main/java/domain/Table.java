@@ -5,6 +5,7 @@ import constant.PaymentType;
 public class Table {
 
     private static final int DISCOUNT_PRICE = 10000;
+    private static final int DISCOUNT_UNIT = 10;
 
     private final int number;
     private final Order order;
@@ -42,10 +43,10 @@ public class Table {
     }
 
     private int chickenDiscount() {
-        return discountChicken() / 10 * DISCOUNT_PRICE;
+        return discountChicken() / DISCOUNT_UNIT * DISCOUNT_PRICE;
     }
 
-    public int discountChicken() {
+    private int discountChicken() {
         return order.chickenNumber();
     }
 
