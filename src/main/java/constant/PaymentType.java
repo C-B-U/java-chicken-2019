@@ -19,7 +19,7 @@ public enum PaymentType {
         return Arrays.stream(PaymentType.values())
                 .filter(paymentType -> paymentType.number == number)
                 .findAny()
-                .orElseThrow();
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_EXIST_PAYMENT_TYPE.toString()));
     }
 
     public double getDiscountRate() {
