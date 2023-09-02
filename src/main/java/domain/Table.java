@@ -1,7 +1,7 @@
 package domain;
 
 public class Table {
-    private int number;
+    private final int number;
 
     public Table(int number) {
         this.number = number;
