@@ -22,5 +22,13 @@ public enum Main {
         return number;
     }
 
+    public static String showMainFunction(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Main main : Main.values()){
+            stringBuilder.append(String.format("%d - %s", main.number, main.function));
+        }
+        return stringBuilder.toString();
+    }
+
 
 }

@@ -9,8 +9,8 @@ public class OutputView {
         System.out.println(ProgressMessage.SELECT_NUMBER);
     }
 
-    public void printErrorMessage(String message){
-        System.out.println(message);
+    public void printMainFunction(){
+        System.out.println(Main.showMainFunction());
     }
 
     public void printTableList(TableList tableList){
@@ -32,5 +32,9 @@ public class OutputView {
 
     public void printMenuQuantity(){
         System.out.println(ProgressMessage.INPUT_MENU_QUANTITY);
+    }
+
+    public void printErrorMessage(String message){
+        System.out.println(message);
     }
 }
