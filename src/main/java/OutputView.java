@@ -12,9 +12,9 @@ public class OutputView {
         System.out.println(Main.showMainFunction());
     }
 
-    public void printTableList(TableList tableList){
+    public void printTableList(TableStatus tableStatus){
         System.out.println(ProgressMessage.TABLE_LIST);
-        System.out.println(tableList);
+        System.out.println(tableStatus);
     }
 
     public void printSelectTableNumber(){

@@ -1,11 +1,7 @@
 import java.util.*;
 
 public class TableList {
-
-    private final List<String> upSide = List.of("┏", "-", "┓");
     private final List<Table> tables;
-    private final Map<Table, List<String>> downSide = new HashMap<>(6);
-
 
     public TableList() {
         this.tables = new ArrayList<>();
@@ -20,19 +16,6 @@ public class TableList {
     private void addTableWithNumber(int number) {
         Table table = new Table(number);
         tables.add(table);
-        downSide.put(table, List.of("┗", "-" ,"┛"));
-    }
-
-
-    public void changeTableOrderStatus(Table table){
-        table.checkOrdering();
-        if (table.isOrdering()){
-            downSide.put(table, List.of("┗", "#" ,"┛"));
-        }
-    }
-
-    public void changeTablePaymentStatus(Table table){
-        downSide.put(table, List.of("┗", "-" ,"┛"));
     }
 
     public void validateTableNumber(Integer number){
@@ -46,30 +29,10 @@ public class TableList {
                 .filter(table -> table.getNumber() == number)
                 .findFirst()
                 .orElse(null);
-
     }
 
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < tables.size(); i++){
-            for (String upside : upSide){
-                stringBuilder.append(upside).append(" ");
-            }
-        }
-        stringBuilder.append("\n");
-
-        for (Table table : tables){
-            stringBuilder.append("| ").append(table.getNumber()).append(" | ");
-        }
-        stringBuilder.append("\n");
-
-        for (Table table : tables){
-            for (String downSide : downSide.get(table)){
-                stringBuilder.append(downSide).append(" ");
-            }
-        }
-        stringBuilder.append("\n");
-        return stringBuilder.toString();
+    public List<Table> getTables() {
+        return tables;
     }
+
 }
