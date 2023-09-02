@@ -16,6 +16,7 @@ public class InputView {
         outputView.printSelectMainNumber();
         Scanner scanner = new Scanner(System.in);
         Integer number = scanner.nextInt();
+        outputView.printEnter();
         try {
             Main.validateMainListNumber(number);
             return number;
@@ -37,6 +38,7 @@ public class InputView {
         outputView.printSelectTableNumber();
         Scanner scanner = new Scanner(System.in);
         Integer number = scanner.nextInt();
+        outputView.printEnter();
         try {
             tableList.validateTableNumber(number);
             return tableList.getTable(number);
@@ -58,6 +60,7 @@ public class InputView {
         outputView.printSelectMenu();
         Scanner scanner = new Scanner(System.in);
         Integer number = scanner.nextInt();
+        outputView.printEnter();
         try {
             Menu.validateMenuNumber(number);
             return Menu.getMenu(number);
@@ -79,6 +82,7 @@ public class InputView {
         outputView.printMenuQuantity();
         Scanner scanner = new Scanner(System.in);
         int quantity = scanner.nextInt();
+        outputView.printEnter();
         try {
             orderList.validateMenuQuantity(menu, quantity);
             return quantity;
@@ -101,6 +105,7 @@ public class InputView {
         outputView.printPaymentMethod();
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
+        outputView.printEnter();
         try {
             PaymentMethod.validatePaymentNumber(number);
             return number;

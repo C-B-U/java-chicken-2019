@@ -69,6 +69,7 @@ public class TableList {
                 stringBuilder.append(downSide).append(" ");
             }
         }
+        stringBuilder.append("\n");
         return stringBuilder.toString();
     }
 }

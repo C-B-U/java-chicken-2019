@@ -1,4 +1,5 @@
 public class PosController {
+    private static final int INIT_NUMBER = 0;
     private final PosService posService;
 
     public PosController() {
@@ -6,7 +7,7 @@ public class PosController {
     }
 
     public void startProgram(){
-        int number = 0;
+        int number = INIT_NUMBER;
         while (Main.isNotProgramExit(number)){
             number = posService.selectMain();
             executeFunction(number);

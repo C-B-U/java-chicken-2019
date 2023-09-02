@@ -55,5 +55,10 @@ public class OutputView {
 
     public void printPaymentPrice(Payment payment) {
         System.out.println(payment);
+        printEnter();
+    }
+
+    public void printEnter(){
+        System.out.println();
     }
 }

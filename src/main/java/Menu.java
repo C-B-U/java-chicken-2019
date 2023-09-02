@@ -29,7 +29,6 @@ public enum Menu {
         for (Menu menu : values()) {
             menuString.append(String.format("[%s] %d - %s : %d원\n", menu.type, menu.number, menu.name, menu.price));
         }
-        menuString.append("\n");
         return menuString.toString();
     }
 

@@ -30,7 +30,7 @@ public class OrderList {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(ProgressMessage.SELECT_NUMBER).append("\n")
+        stringBuilder.append(ProgressMessage.ORDER_HISTORY).append("\n")
                 .append(ProgressMessage.HISTORY_ELEMENT).append("\n");
 
         for (Map.Entry<Menu, Integer> entry : menus.entrySet()) {
