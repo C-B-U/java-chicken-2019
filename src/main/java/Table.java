@@ -1,10 +1,13 @@
 public class Table {
 
     private final int number;
-    private boolean isOrdering = false;
+    private boolean isOrdering;
+    private final OrderList orderList;
 
     public Table(int number) {
         this.number = number;
+        this.isOrdering = false;
+        this.orderList = new OrderList();
     }
 
     private void isOrdering(boolean isOrdering){
