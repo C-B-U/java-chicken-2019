@@ -25,6 +25,7 @@ public class TableList {
 
 
     public void changeTableStatus(Table table){
+        table.checkOrdering();
         if (table.isOrdering()){
             downSide.put(table, List.of("┗", "#" ,"┛"));
         }
@@ -37,7 +38,11 @@ public class TableList {
     }
 
     public Table getTable(Integer number) {
-        return tables.get(number);
+        return tables.stream()
+                .filter(table -> table.getNumber() == number)
+                .findFirst()
+                .orElse(null);
+
     }
 
     @Override

@@ -10,8 +10,8 @@ public class Table {
         this.orderList = new OrderList();
     }
 
-    private void isOrdering(boolean isOrdering){
-        this.isOrdering = isOrdering;
+    public void checkOrdering(){
+        this.isOrdering = true;
     }
 
     public int getNumber() {
