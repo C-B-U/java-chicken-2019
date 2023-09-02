@@ -1,5 +1,6 @@
 package view;
 
+import domain.Menu;
 import domain.PosFeature;
 import domain.ProcessMessage;
 import domain.Table;
@@ -58,4 +59,8 @@ public class OutputView {
         System.out.println();
     }
 
+    public void printMenus() {
+        printNewLine();
+        System.out.println(Menu.getMenuBoard());
+    }
 }

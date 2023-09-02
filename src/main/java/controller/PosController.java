@@ -23,15 +23,16 @@ public class PosController {
 
     public void execute(PosFeature feature) {
         outputView.printTables(tableList.getTableList());
+        int tableNumber = inputView.inputYourTable();
         if (feature == PosFeature.ORDER_REGISTER) {
-            executeOrderRegister();
+            executeOrderRegister(tableNumber);
             return;
         }
         executePayment();
     }
 
-    private void executeOrderRegister() {
-        inputView.inputYourTable();
+    private void executeOrderRegister(int tableNumber) {
+        outputView.printMenus();
     }
 
 
