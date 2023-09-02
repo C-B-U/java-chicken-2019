@@ -45,5 +45,13 @@ public enum Menu {
             throw new IllegalArgumentException(ErrorMessage.INPUT_MENU_NUMBER_ERROR.toString());
         }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 }
 

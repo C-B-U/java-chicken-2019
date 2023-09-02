@@ -38,5 +38,9 @@ public enum Main {
         return number != PROGRAM_EXIT.number;
     }
 
+    public static boolean isMakePayment(int number){
+        return number == MAKE_PAYMENT.getNumber();
+    }
+
 
 }
