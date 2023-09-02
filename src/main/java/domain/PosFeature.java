@@ -9,7 +9,7 @@ public enum PosFeature {
     PROGRAM_QUIT(3, "프로그램 종료");
 
     private static final String NEW_LINE = "\n";
-    private static final String LINK = "-";
+    private static final String LINK = " - ";
     private final int featureNumber;
     private final String featureName;
 

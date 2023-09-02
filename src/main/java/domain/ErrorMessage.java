@@ -1,7 +1,8 @@
 package domain;
 
 public enum ErrorMessage {
-    WRONG_FEATURE_NUMBER("잘못된 기능 번호입니다. 다시 입력해 주세요.");
+    WRONG_FEATURE_NUMBER("잘못된 기능 번호입니다. 다시 입력해 주세요."),
+    WRONG_TABLE_NUMBER("잘못된 테이블 번호입니다. 다시 입력해 주세요.");
 
     private final String message;
 

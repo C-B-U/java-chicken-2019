@@ -14,4 +14,10 @@ public class TableList {
     public List<Table> getTableList() {
         return new ArrayList<>(list);
     }
+
+    public static void matchNumber(int number) {
+        if(tableNumbers.stream().noneMatch(tableNumber -> tableNumber.equals(number))) {
+            throw new IllegalArgumentException(ErrorMessage.WRONG_TABLE_NUMBER.toString());
+        }
+    }
 }

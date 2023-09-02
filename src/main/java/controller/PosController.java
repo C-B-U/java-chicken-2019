@@ -22,6 +22,7 @@ public class PosController {
     }
 
     public void execute(PosFeature feature) {
+        outputView.printTables(tableList.getTableList());
         if (feature == PosFeature.ORDER_REGISTER) {
             executeOrderRegister();
             return;
@@ -30,11 +31,10 @@ public class PosController {
     }
 
     private void executeOrderRegister() {
-        outputView.printTables(tableList.getTableList());
+        inputView.inputYourTable();
     }
 
 
     private void executePayment() {
-        outputView.printTables(tableList.getTableList());
     }
 }
