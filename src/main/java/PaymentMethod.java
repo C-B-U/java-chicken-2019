@@ -27,4 +27,8 @@ public enum PaymentMethod {
         stringBuilder.deleteCharAt(stringBuilder.length()-LAST_CHAR);
         return stringBuilder.toString();
     }
+
+    public static boolean isCashType(int number){
+        return number == CASH.number;
+    }
 }

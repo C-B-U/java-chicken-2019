@@ -5,6 +5,10 @@ public class Payment {
 
     private static final String DISCOUNT_MENU = "치킨";
     private static final String CURRENCY_UNIT = "원";
+    private static final int INIT_VALUE = 0;
+    private static final double DISCOUNT_CHICKEN_AMOUNT = 10.0;
+    private static final int TEN_THOUSAND = 10000;
+    private static final double DISCOUNT_RATE = 0.05;
     public final OrderList orderList;
     public int chickenQuantitySum = 0;
     public double paymentPrice;
@@ -15,7 +19,7 @@ public class Payment {
     }
 
     private int initPaymentPrice(){
-        int price, quantity, sum = 0;
+        int price, quantity, sum = INIT_VALUE;
         for (Map.Entry<Menu, Integer> entry : orderList.getMenus().entrySet()) {
             price = entry.getKey().getPrice();
             quantity = entry.getValue();
@@ -41,15 +45,15 @@ public class Payment {
     }
 
     private void defaultDisCount() {
-        if (chickenQuantitySum > 10.0){
-            double discount = (chickenQuantitySum / 10.0) * 10000;
+        if (chickenQuantitySum > DISCOUNT_CHICKEN_AMOUNT){
+            double discount = (chickenQuantitySum / DISCOUNT_CHICKEN_AMOUNT) * TEN_THOUSAND;
             paymentPrice -= discount;
         }
     }
 
     private void cashDisCount(int paymentNumber) {
-        if (paymentNumber == 2){
-            paymentPrice -= paymentPrice * 0.05;
+        if (PaymentMethod.isCashType(paymentNumber)){
+            paymentPrice -= paymentPrice * DISCOUNT_RATE;
         }
     }
 
