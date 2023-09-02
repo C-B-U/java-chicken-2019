@@ -15,11 +15,19 @@ class InputValidTest {
     }
 
     @Test
-    @DisplayName("테이블 숫자가 옳지 않으면 오류가 발생한다.")
+    @DisplayName("옳지 않은 테이블 숫자를 입력하면 오류가 발생한다.")
     void validateTableListNumber(){
         TableList tableList = new TableList();
 
         assertThatThrownBy(() -> tableList.validateTableNumber(7))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR);
+    }
+
+    @Test
+    @DisplayName("옳지 않은 메뉴 숫자를 입력하면 오류가 발생한다.")
+    void validateMenuNumber(){
+        assertThatThrownBy(() -> Menu.validateMenuNumber(7))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR);
     }
