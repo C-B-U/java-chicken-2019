@@ -69,4 +69,9 @@ public class OutputView {
         printNewLine();
         System.out.println(ProcessMessage.SELECT_MENU);
     }
+
+    public void printEnterQuantity() {
+        printNewLine();
+        System.out.println(ProcessMessage.ENTER_QUANTITY);
+    }
 }

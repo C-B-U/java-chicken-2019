@@ -2,10 +2,7 @@ package view;
 
 
 import camp.nextstep.edu.missionutils.Console;
-import domain.Menu;
-import domain.PosFeature;
-import domain.Table;
-import domain.TableList;
+import domain.*;
 import validator.InputValidator;
 
 public class InputView {
@@ -37,10 +34,22 @@ public class InputView {
     public Menu inputWantedMenu() {
         String number = Console.readLine();
         try {
+            inputValidator.validateIsDigit(number);
             return Menu.convert(number);
         } catch (IllegalArgumentException e) {
             outputView.printException(e);
             return inputWantedMenu();
+        }
+    }
+
+    public MenuQuantity inputMenuQuantity() {
+        String quantity = Console.readLine();
+        try {
+            inputValidator.validateIsDigit(quantity);
+            return new MenuQuantity(Integer.parseInt(quantity));
+        } catch (IllegalArgumentException e) {
+            outputView.printException(e);
+            return inputMenuQuantity();
         }
     }
 }

@@ -33,7 +33,10 @@ public class PosController {
 
     private void executeOrderRegister(int tableNumber) {
         outputView.printMenus();
-        inputView.inputWantedMenu();
+        Menu menu = inputView.inputWantedMenu();
+        outputView.printEnterQuantity();
+        MenuQuantity quantity = inputView.inputMenuQuantity();
+        Order order = new Order(menu, quantity, tableNumber);
     }
 
 
