@@ -25,24 +25,49 @@ public class InputView {
         }
     }
 
-    public Integer readTableNumber(TableList tableList){
-        Integer input;
+    public Table readTableNumber(TableList tableList){
+        Table table;
         do {
-            input = inputTableNumber(tableList);
-        }while (input == null);
-        return input;
+            table = inputTableNumber(tableList);
+        }while (table == null);
+        return table;
     }
 
-    private Integer inputTableNumber(TableList tableList) {
+    private Table inputTableNumber(TableList tableList) {
         outputView.printSelectTableNumber();
         Scanner scanner = new Scanner(System.in);
         Integer number = scanner.nextInt();
         try {
             tableList.validateTableNumber(number);
-            return number;
+            return tableList.getTable(number);
         }catch (IllegalArgumentException e){
             outputView.printErrorMessage(e.getMessage());
             return null;
         }
     }
+
+    public Menu readMenuNumber(){
+       Menu menu;
+       do{
+           menu = inputMenuNumber();
+       }while (menu == null);
+       return menu;
+    }
+
+    private Menu inputMenuNumber() {
+        outputView.printSelectMenu();
+        Scanner scanner = new Scanner(System.in);
+        Integer number = scanner.nextInt();
+        try {
+            Menu.validateMenuNumber(number);
+            return Menu.getMenu(number);
+        }catch (IllegalArgumentException e){
+            outputView.printErrorMessage(e.getMessage());
+            return null;
+        }
+    }
+
+
+
+
 }
