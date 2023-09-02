@@ -2,6 +2,7 @@ package view;
 
 
 import camp.nextstep.edu.missionutils.Console;
+import domain.Menu;
 import domain.PosFeature;
 import domain.Table;
 import domain.TableList;
@@ -30,6 +31,16 @@ public class InputView {
         } catch (IllegalArgumentException e) {
             outputView.printException(e);
             return inputYourTable();
+        }
+    }
+
+    public Menu inputWantedMenu() {
+        String number = Console.readLine();
+        try {
+            return Menu.convert(number);
+        } catch (IllegalArgumentException e) {
+            outputView.printException(e);
+            return inputWantedMenu();
         }
     }
 }

@@ -62,5 +62,11 @@ public class OutputView {
     public void printMenus() {
         printNewLine();
         System.out.println(Menu.getMenuBoard());
+        printSelectMenu();
+    }
+
+    private void printSelectMenu() {
+        printNewLine();
+        System.out.println(ProcessMessage.SELECT_MENU);
     }
 }

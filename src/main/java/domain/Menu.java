@@ -36,6 +36,13 @@ public enum Menu {
                 .collect(Collectors.joining(NEW_LINE));
     }
 
+    public static Menu convert(String number) {
+        return Arrays.stream(values())
+                .filter(menuNumber -> menuNumber.menuNumber == Integer.parseInt(number))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.WRONG_MENU_NUMBER.toString()));
+    }
+
     @Override
     public String toString() {
         return "[" + menuType + "] " + menuNumber + LINK + menuName

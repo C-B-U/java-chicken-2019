@@ -33,6 +33,7 @@ public class PosController {
 
     private void executeOrderRegister(int tableNumber) {
         outputView.printMenus();
+        inputView.inputWantedMenu();
     }
 
 
