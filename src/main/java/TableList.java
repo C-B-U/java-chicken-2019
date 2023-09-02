@@ -24,11 +24,15 @@ public class TableList {
     }
 
 
-    public void changeTableStatus(Table table){
+    public void changeTableOrderStatus(Table table){
         table.checkOrdering();
         if (table.isOrdering()){
             downSide.put(table, List.of("┗", "#" ,"┛"));
         }
+    }
+
+    public void changeTablePaymentStatus(Table table){
+        downSide.put(table, List.of("┗", "-" ,"┛"));
     }
 
     public void validateTableNumber(Integer number){
