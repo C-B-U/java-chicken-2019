@@ -40,4 +40,12 @@ class InputValidTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR);
     }
+
+    @Test
+    @DisplayName("옳지 않는 결제 번호를 입력하면 오류가 발생한다.")
+    void validatePaymentNumber(){
+        assertThatThrownBy(() -> PaymentMethod.validatePaymentNumber(3))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ERROR);
+    }
 }
