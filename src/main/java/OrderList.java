@@ -8,12 +8,17 @@ public class OrderList {
     private final EnumMap<Menu, Integer> menus = new EnumMap<>(Menu.class);
 
     public void saveOrder(Menu menu, int quantity){
-        menus.put(menu, quantity);
+        int totalQuantity = quantity + menus.getOrDefault(menu, DEFAULT_QUANTITY);
+        menus.put(menu, totalQuantity);
+    }
+
+    public void completePayment(){
+        menus.clear();
     }
 
     public void validateMenuQuantity(Menu menu, int quantity){
-        int sum = quantity + menus.getOrDefault(menu, DEFAULT_QUANTITY);
-        if( quantity < MIN_QUANTITY || sum > MAX_QUANTITY){
+        int totalQuantity = quantity + menus.getOrDefault(menu, DEFAULT_QUANTITY);
+        if( quantity < MIN_QUANTITY || totalQuantity > MAX_QUANTITY){
             throw new IllegalArgumentException(String.format(ErrorMessage.INPUT_MENU_QUANTITY_ERROR.toString(), MAX_QUANTITY));
         }
     }
@@ -41,8 +46,4 @@ public class OrderList {
         }
         return stringBuilder.toString();
     }
-
-
-
-    // 결제 기능
 }
