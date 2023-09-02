@@ -4,7 +4,10 @@ public enum ProgressMessage {
     TABLE_LIST("## 테이블 목록"),
     SELECT_TABLE("## 테이블을 선택하세요."),
     SELECT_MENU("## 등록할 메뉴를 선택하세요."),
-    INPUT_MENU_QUANTITY("## 메뉴의 수량을 입력하세요.");
+    INPUT_MENU_QUANTITY("## 메뉴의 수량을 입력하세요."),
+    ORDER_HISTORY("## 주문 내역"),
+    HISTORY_ELEMENT("메뉴 수량 금액"),
+    PAYMENT_PROGRESS("## %s번 테이블의 결제를 진행합니다.");
 
     private final String message;
 
