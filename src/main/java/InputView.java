@@ -88,5 +88,27 @@ public class InputView {
         }
     }
 
+    public Integer readPaymentNumber(int tableNum){
+        Integer number;
+        do {
+            number = inputPaymentNumber(tableNum);
+        }while (number == null);
+        return number;
+    }
+
+    private Integer inputPaymentNumber(int tableNum) {
+        outputView.printProgressPayment(tableNum);
+        outputView.printPaymentMethod();
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        try {
+            PaymentMethod.validatePaymentNumber(number);
+            return number;
+        }catch (IllegalArgumentException e){
+            outputView.printErrorMessage(e.getMessage());
+            return null;
+        }
+    }
+
 
 }
