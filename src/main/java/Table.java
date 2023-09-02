@@ -21,4 +21,8 @@ public class Table {
     public boolean isOrdering() {
         return isOrdering;
     }
+
+    public OrderList getOrderList() {
+        return orderList;
+    }
 }

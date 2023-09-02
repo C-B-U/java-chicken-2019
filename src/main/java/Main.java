@@ -25,9 +25,17 @@ public enum Main {
     public static String showMainFunction(){
         StringBuilder stringBuilder = new StringBuilder();
         for (Main main : Main.values()){
-            stringBuilder.append(String.format("%d - %s", main.number, main.function));
+            stringBuilder.append(String.format("%d - %s\n", main.number, main.function));
         }
         return stringBuilder.toString();
+    }
+
+    public static boolean isRegisterOrder(int number){
+        return number == REGISTER_ORDER.number;
+    }
+
+    public static boolean isNotProgramExit(int number){
+        return number != PROGRAM_EXIT.number;
     }
 
 

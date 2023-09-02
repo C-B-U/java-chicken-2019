@@ -8,7 +8,7 @@ public class TableList {
 
 
     public TableList() {
-        this.tables = new ArrayList<>(6);
+        this.tables = new ArrayList<>();
         addTableWithNumber(1);
         addTableWithNumber(2);
         addTableWithNumber(3);
@@ -19,7 +19,7 @@ public class TableList {
 
     private void addTableWithNumber(int number) {
         Table table = new Table(number);
-        tables.add(number, table);
+        tables.add(table);
         downSide.put(table, List.of("┗", "-" ,"┛"));
     }
 
@@ -43,12 +43,22 @@ public class TableList {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < tables.size(); i++){
+            for (String upside : upSide){
+                stringBuilder.append(upside).append(" ");
+            }
+        }
+        stringBuilder.append("\n");
+
         for (Table table : tables){
-            stringBuilder.append(upSide);
-            stringBuilder.append("\n");
-            stringBuilder.append("| ").append(table.getNumber()).append(" |");
-            stringBuilder.append("\n");
-            stringBuilder.append(downSide.get(table));
+            stringBuilder.append("| ").append(table.getNumber()).append(" | ");
+        }
+        stringBuilder.append("\n");
+
+        for (Table table : tables){
+            for (String downSide : downSide.get(table)){
+                stringBuilder.append(downSide).append(" ");
+            }
         }
         return stringBuilder.toString();
     }

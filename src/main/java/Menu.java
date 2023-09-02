@@ -11,8 +11,7 @@ public enum Menu {
     MENU21("음료", 21, "콜라", 1000),
     MENU22("음료", 22, "사이다", 1000);
 
-    private static final int MAX_QUANTITY = 99;
-    private static final int MIN_QUANTITY = 1;
+
     private final String type;
     private final int number;
     private final String name;
@@ -30,6 +29,7 @@ public enum Menu {
         for (Menu menu : values()) {
             menuString.append(String.format("[%s] %d - %s : %d원\n", menu.type, menu.number, menu.name, menu.price));
         }
+        menuString.append("\n");
         return menuString.toString();
     }
 
@@ -43,12 +43,6 @@ public enum Menu {
     public static void validateMenuNumber(Integer number) {
         if (Arrays.stream(Menu.values()).noneMatch(menu -> menu.number == number)){
             throw new IllegalArgumentException(ErrorMessage.INPUT_MENU_NUMBER_ERROR.toString());
-        }
-    }
-
-    public static void validateMenuQuantity(Integer quantity) {
-        if (quantity < MIN_QUANTITY || quantity > MAX_QUANTITY){
-            throw new IllegalArgumentException(String.format(ErrorMessage.INPUT_MENU_QUANTITY_ERROR.toString(), MAX_QUANTITY));
         }
     }
 }
