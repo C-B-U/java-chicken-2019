@@ -2,7 +2,6 @@ public class OutputView {
 
     public void printMainProgram(){
         System.out.println(ProgressMessage.MAIN_MESSAGE);
-
     }
 
     public void printSelectMainNumber(){
