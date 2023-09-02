@@ -7,7 +7,8 @@ public enum ProgressMessage {
     INPUT_MENU_QUANTITY("## 메뉴의 수량을 입력하세요."),
     ORDER_HISTORY("## 주문 내역"),
     HISTORY_ELEMENT("메뉴 수량 금액"),
-    PAYMENT_PROGRESS("## %s번 테이블의 결제를 진행합니다.");
+    PAYMENT_PROGRESS("## %s번 테이블의 결제를 진행합니다."),
+    PAYMENT_AMOUNT("## 최종 결제할 금액");
 
     private final String message;
 
