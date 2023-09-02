@@ -37,4 +37,16 @@ public class OutputView {
     public void printErrorMessage(String message){
         System.out.println(message);
     }
+
+    public void printOrderHistory(OrderList orderList){
+        System.out.println(orderList);
+    }
+
+    public void printProgressPayment(int tableNum){
+        System.out.println(String.format(ProgressMessage.PAYMENT_PROGRESS.toString(), tableNum));
+    }
+
+    public void printPaymentMethod(){
+        System.out.println(PaymentMethod.showPaymentMethod());
+    }
 }
