@@ -1,9 +1,6 @@
 package view;
 
-import domain.Menu;
-import domain.PosFeature;
-import domain.ProcessMessage;
-import domain.Table;
+import domain.*;
 
 import java.util.List;
 
@@ -11,6 +8,7 @@ public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
+    private static final String BOTTOM_ORDER_LINE = "└ # ┘";
 
     public void printMainScreen() {
         System.out.println(ProcessMessage.MAIN_SCREEN);
@@ -30,10 +28,21 @@ public class OutputView {
     public void printTables(List<Table> tables) {
         printNewLine();
         System.out.println(ProcessMessage.TABLE_LIST);
-        printLine(TOP_LINE, tables.size());
+        printTopLine(tables.size());
         printTableNumbers(tables);
-        printLine(BOTTOM_LINE, tables.size());
+        printBottomLine(tables);
         printSelectTable();
+    }
+
+    private void printBottomLine(List<Table> tables) {
+        for (Table table : tables) {
+            if (Orders.isIncludeNumber(table.getNumber())) {
+                System.out.print(BOTTOM_ORDER_LINE);
+                continue;
+            }
+            System.out.print(BOTTOM_LINE);
+        }
+        printNewLine();
     }
 
     private void printSelectTable() {
@@ -41,9 +50,9 @@ public class OutputView {
         System.out.println(ProcessMessage.SELECT_TABLE);
     }
 
-    private void printLine(String line, int count) {
+    private void printTopLine(int count) {
         for (int index = 0; index < count; index++) {
-            System.out.print(line);
+            System.out.print(TOP_LINE);
         }
         printNewLine();
     }

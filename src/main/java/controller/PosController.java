@@ -1,6 +1,6 @@
 package controller;
 
-import domain.PosFeature;
+import domain.*;
 import domain.TableList;
 import view.InputView;
 import view.OutputView;
@@ -9,6 +9,7 @@ public class PosController {
     private static final OutputView outputView = new OutputView();
     private static final InputView inputView = new InputView();
     private static final TableList tableList = new TableList();
+    private static final Orders orders = new Orders();
 
     public void start() {
         while (true) {
@@ -36,7 +37,7 @@ public class PosController {
         Menu menu = inputView.inputWantedMenu();
         outputView.printEnterQuantity();
         MenuQuantity quantity = inputView.inputMenuQuantity();
-        Order order = new Order(menu, quantity, tableNumber);
+        orders.add(new Order(menu, quantity, tableNumber));
     }
 
 
