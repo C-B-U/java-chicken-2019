@@ -9,6 +9,7 @@ public class OutputView {
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
     private static final String BOTTOM_ORDER_LINE = "└ # ┘";
+    private static final String MENU_QUANTITY_PRICE = "메뉴 수량 금액";
 
     public void printMainScreen() {
         System.out.println(ProcessMessage.MAIN_SCREEN);
@@ -82,5 +83,20 @@ public class OutputView {
     public void printEnterQuantity() {
         printNewLine();
         System.out.println(ProcessMessage.ENTER_QUANTITY);
+    }
+
+    public void printOrderDetails(List<String> orders) {
+        System.out.println(ProcessMessage.ORDER_DETAILS);
+        System.out.println(MENU_QUANTITY_PRICE);
+        orders.forEach(System.out::println);
+    }
+
+    public void printProceedPayment(int tableNumber) {
+        System.out.println(String.format(ProcessMessage.PROCEED_PAYMENT.toString(), tableNumber));
+        printSelectPaymentMethod();
+    }
+
+    private void printSelectPaymentMethod() {
+        System.out.println(ProcessMessage.SELECT_PAYMENT_METHOD);
     }
 }

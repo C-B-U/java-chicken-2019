@@ -52,4 +52,16 @@ public class InputView {
             return inputMenuQuantity();
         }
     }
+
+    public Payment inputWantedPaymentMethod() {
+        String number = Console.readLine();
+        try {
+            inputValidator.validateIsDigit(number);
+            return Payment.convert(number);
+        } catch (IllegalArgumentException e) {
+            outputView.printException(e);
+            return inputWantedPaymentMethod();
+        }
+
+    }
 }

@@ -41,5 +41,7 @@ public class PosController {
 
     private void executePayment(int tableNumber) {
         outputView.printOrderDetails(orders.getOrder(tableNumber));
+        outputView.printProceedPayment(tableNumber);
+        inputView.inputWantedPaymentMethod();
     }
 }
