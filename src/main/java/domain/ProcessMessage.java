@@ -6,7 +6,8 @@ public enum ProcessMessage {
     TABLE_LIST("테이블 목록"),
     SELECT_TABLE("테이블을 선택하세요."),
     SELECT_MENU("등록할 메뉴를 선택하세요."),
-    ENTER_QUANTITY("메뉴의 수량을 입력하세요.");
+    ENTER_QUANTITY("메뉴의 수량을 입력하세요."),
+    ORDER_DETAILS("주문 내역");
 
     private static final String PREFIX = "## ";
     private final String message;

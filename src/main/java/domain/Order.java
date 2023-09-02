@@ -1,7 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
-
 public class Order {
     private final Menu menu;
     private final MenuQuantity menuQuantity;
@@ -11,6 +9,18 @@ public class Order {
         this.menu = menu;
         this.menuQuantity = menuQuantity;
         this.tableNumber = tableNumber;
+    }
+
+    public String getMenu() {
+        return menu.menuName;
+    }
+
+    public int getPrice() {
+        return menu.menuPrice * getMenuQuantity();
+    }
+
+    public int getMenuQuantity() {
+        return menuQuantity.getQuantity();
     }
 
     public int getTableNumber() {

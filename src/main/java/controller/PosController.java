@@ -1,7 +1,6 @@
 package controller;
 
 import domain.*;
-import domain.TableList;
 import view.InputView;
 import view.OutputView;
 
@@ -29,7 +28,7 @@ public class PosController {
             executeOrderRegister(tableNumber);
             return;
         }
-        executePayment();
+        executePayment(tableNumber);
     }
 
     private void executeOrderRegister(int tableNumber) {
@@ -40,7 +39,7 @@ public class PosController {
         orders.add(new Order(menu, quantity, tableNumber));
     }
 
-
-    private void executePayment() {
+    private void executePayment(int tableNumber) {
+        outputView.printOrderDetails(orders.getOrder(tableNumber));
     }
 }
