@@ -25,4 +25,12 @@ public class OutputView {
     public void printMenuList(){
         System.out.println(Menu.showMenu());
     }
+
+    public void printSelectMenu(){
+        System.out.println(ProgressMessage.SELECT_MENU);
+    }
+
+    public void printMenuQuantity(){
+        System.out.println(ProgressMessage.INPUT_MENU_QUANTITY);
+    }
 }
