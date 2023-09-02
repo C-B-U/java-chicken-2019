@@ -1,12 +1,14 @@
 package controller;
 
 import domain.PosFeature;
+import domain.TableList;
 import view.InputView;
 import view.OutputView;
 
 public class PosController {
     private static final OutputView outputView = new OutputView();
     private static final InputView inputView = new InputView();
+    private static final TableList tableList = new TableList();
 
     public void start() {
         while (true) {
@@ -28,9 +30,11 @@ public class PosController {
     }
 
     private void executeOrderRegister() {
+        outputView.printTables(tableList.getTableList());
     }
 
 
     private void executePayment() {
+        outputView.printTables(tableList.getTableList());
     }
 }
