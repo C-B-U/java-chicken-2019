@@ -9,7 +9,8 @@ public enum ProcessMessage {
     ENTER_QUANTITY("메뉴의 수량을 입력하세요."),
     ORDER_DETAILS("주문 내역"),
     PROCEED_PAYMENT("%d번 테이블의 결제를 진행합니다."),
-    SELECT_PAYMENT_METHOD("신용 카드는 1번, 현금은 2번");
+    SELECT_PAYMENT_METHOD("신용 카드는 1번, 현금은 2번"),
+    FINAL_PAYMENT_AMOUNT("최종 결제할 금액");
 
     private static final String PREFIX = "## ";
     private final String message;

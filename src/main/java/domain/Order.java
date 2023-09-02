@@ -11,7 +11,11 @@ public class Order {
         this.tableNumber = tableNumber;
     }
 
-    public String getMenu() {
+    public String getMenuType() {
+        return menu.menuType.type;
+    }
+
+    public String getMenuName() {
         return menu.menuName;
     }
 

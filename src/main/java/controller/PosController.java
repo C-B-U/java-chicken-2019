@@ -18,6 +18,7 @@ public class PosController {
                 break;
             }
             execute(feature);
+            outputView.printNewLine();
         }
     }
 
@@ -40,8 +41,11 @@ public class PosController {
     }
 
     private void executePayment(int tableNumber) {
-        outputView.printOrderDetails(orders.getOrder(tableNumber));
+        outputView.printOrderDetails(orders.getSpecificTableOrderDetails(tableNumber));
         outputView.printProceedPayment(tableNumber);
-        inputView.inputWantedPaymentMethod();
+        PaymentMethod paymentMethod = inputView.inputWantedPaymentMethod();
+        Double finalAmount = DiscountCalculator.calculateDiscountRate(paymentMethod, orders.getSpecificTableOrder(tableNumber));
+        outputView.printFinalPaymentAmount(finalAmount);
+        orders.deleteOrder(tableNumber);
     }
 }

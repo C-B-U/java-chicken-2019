@@ -53,11 +53,11 @@ public class InputView {
         }
     }
 
-    public Payment inputWantedPaymentMethod() {
+    public PaymentMethod inputWantedPaymentMethod() {
         String number = Console.readLine();
         try {
             inputValidator.validateIsDigit(number);
-            return Payment.convert(number);
+            return PaymentMethod.convert(number);
         } catch (IllegalArgumentException e) {
             outputView.printException(e);
             return inputWantedPaymentMethod();
