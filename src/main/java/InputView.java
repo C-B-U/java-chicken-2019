@@ -67,7 +67,26 @@ public class InputView {
         }
     }
 
+    public Integer readMenuQuantity(){
+        Integer quantity;
+        do {
+            quantity = inputMenuQuantity();
+        }while (quantity == null);
+        return quantity;
+    }
 
+    private Integer inputMenuQuantity() {
+        outputView.printMenuQuantity();
+        Scanner scanner = new Scanner(System.in);
+        Integer quantity = scanner.nextInt();
+        try {
+            Menu.validateMenuQuantity(quantity);
+            return quantity;
+        }catch (IllegalArgumentException e){
+            outputView.printErrorMessage(e.getMessage());
+            return null;
+        }
+    }
 
 
 }
