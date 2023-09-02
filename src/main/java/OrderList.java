@@ -22,5 +22,27 @@ public class OrderList {
         return menus;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(ProgressMessage.SELECT_NUMBER).append("\n")
+                .append(ProgressMessage.HISTORY_ELEMENT).append("\n");
+
+        for (Map.Entry<Menu, Integer> entry : menus.entrySet()) {
+            Menu menu = entry.getKey();
+            int quantity = entry.getValue();
+            int price = menu.getPrice();
+            stringBuilder.append(menu.getName())
+                    .append(" ")
+                    .append(quantity)
+                    .append(" ")
+                    .append(price)
+                    .append("\n");
+        }
+        return stringBuilder.toString();
+    }
+
+
+
     // 결제 기능
 }
