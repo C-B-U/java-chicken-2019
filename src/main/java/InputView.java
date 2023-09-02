@@ -67,20 +67,20 @@ public class InputView {
         }
     }
 
-    public Integer readMenuQuantity(){
+    public Integer readMenuQuantity(OrderList orderList, Menu menu){
         Integer quantity;
         do {
-            quantity = inputMenuQuantity();
+            quantity = inputMenuQuantity(orderList, menu);
         }while (quantity == null);
         return quantity;
     }
 
-    private Integer inputMenuQuantity() {
+    private Integer inputMenuQuantity(OrderList orderList, Menu menu) {
         outputView.printMenuQuantity();
         Scanner scanner = new Scanner(System.in);
-        Integer quantity = scanner.nextInt();
+        int quantity = scanner.nextInt();
         try {
-            Menu.validateMenuQuantity(quantity);
+            orderList.validateMenuQuantity(menu, quantity);
             return quantity;
         }catch (IllegalArgumentException e){
             outputView.printErrorMessage(e.getMessage());

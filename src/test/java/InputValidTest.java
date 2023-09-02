@@ -35,7 +35,8 @@ class InputValidTest {
     @Test
     @DisplayName("옳지 않은 메뉴 양을 입력하면 오류가 발생한다.")
     void validateMenuQuantity(){
-        assertThatThrownBy(() -> Menu.validateMenuQuantity(100))
+        OrderList orderList = new OrderList();
+        assertThatThrownBy(() -> orderList.validateMenuQuantity(Menu.MENU1, 100))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ERROR);
     }
