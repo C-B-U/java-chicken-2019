@@ -1,12 +1,22 @@
 package view;
 
-import java.util.Scanner;
+
+import camp.nextstep.edu.missionutils.Console;
+import domain.PosFeature;
+import validator.InputValidator;
 
 public class InputView {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final InputValidator inputValidator = new InputValidator();
+    private static final OutputView outputView = new OutputView();
 
-    public static int inputTableNumber() {
-        System.out.println("## 주문할 테이블을 선택하세요.");
-        return scanner.nextInt();
+    public PosFeature inputWantedFeature() {
+        String number = Console.readLine();
+        try {
+            inputValidator.validateIsDigit(number);
+            return PosFeature.convert(number);
+        } catch (IllegalArgumentException e) {
+            outputView.printException(e);
+            return inputWantedFeature();
+        }
     }
 }

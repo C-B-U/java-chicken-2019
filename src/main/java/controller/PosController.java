@@ -1,5 +1,6 @@
 package controller;
 
+import domain.PosFeature;
 import view.InputView;
 import view.OutputView;
 
@@ -10,6 +11,7 @@ public class PosController {
     public void start() {
         while (true) {
             outputView.printMainScreen();
+            PosFeature feature = inputView.inputWantedFeature();
         }
     }
 }
