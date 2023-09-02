@@ -49,4 +49,12 @@ public class OutputView {
     public void printPaymentMethod(){
         System.out.println(PaymentMethod.showPaymentMethod());
     }
+
+    public void printPaymentAmount(){
+        System.out.println(ProgressMessage.PAYMENT_AMOUNT);
+    }
+
+    public void printPaymentPrice(Payment payment) {
+        System.out.println(payment);
+    }
 }
