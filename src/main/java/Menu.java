@@ -1,6 +1,4 @@
-
 import java.util.Arrays;
-import java.util.List;
 
 public enum Menu {
 
@@ -13,6 +11,8 @@ public enum Menu {
     MENU21("음료", 21, "콜라", 1000),
     MENU22("음료", 22, "사이다", 1000);
 
+    private static final int MAX_QUANTITY = 99;
+    private static final int MIN_QUANTITY = 1;
     private final String type;
     private final int number;
     private final String name;
@@ -25,10 +25,6 @@ public enum Menu {
         this.price = price;
     }
 
-    public static void addMenu (List<Menu> menus){
-        menus.addAll(Arrays.asList(Menu.values()));
-    }
-
     public static String showMenu(){
         StringBuilder menuString = new StringBuilder();
         for (Menu menu : values()) {
@@ -37,5 +33,23 @@ public enum Menu {
         return menuString.toString();
     }
 
+    public static Menu getMenu(Integer number){
+        return Arrays.stream(Menu.values())
+                .filter(menu -> menu.number == number)
+                .findFirst()
+                .orElse(null);
+    }
+
+    public static void validateMenuNumber(Integer number) {
+        if (Arrays.stream(Menu.values()).noneMatch(menu -> menu.number == number)){
+            throw new IllegalArgumentException(ErrorMessage.INPUT_MENU_NUMBER_ERROR.toString());
+        }
+    }
+
+    public static void validateMenuQuantity(Integer quantity) {
+        if (quantity < MIN_QUANTITY || quantity > MAX_QUANTITY){
+            throw new IllegalArgumentException(String.format(ErrorMessage.INPUT_MENU_QUANTITY_ERROR.toString(), MAX_QUANTITY));
+        }
+    }
 }
 
