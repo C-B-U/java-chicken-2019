@@ -22,6 +22,7 @@ public class PosController {
 
     private void executeFunction(int number){
         registerOrder(number);
+        makePayment(number);
     }
     private void registerOrder(int number){
         if (Main.isRegisterOrder(number)){
@@ -32,7 +33,21 @@ public class PosController {
             OrderList orderList = table.getOrderList();
             int quantity = inputView.readMenuQuantity(orderList, menu);
             orderList.saveOrder(menu, quantity);
-            tableList.changeTableStatus(table);
+            tableList.changeTableOrderStatus(table);
+        }
+    }
+
+    private void makePayment(int number){
+        if (Main.isMakePayment(number)){
+            outputView.printTableList(tableList);
+            Table table = inputView.readTableNumber(tableList);
+            outputView.printOrderHistory(table.getOrderList());
+            int paymentNumber = inputView.readPaymentNumber(table.getNumber());
+            outputView.printPaymentAmount();
+            Payment payment = new Payment(table.getOrderList());
+            payment.applyDiscount(paymentNumber);
+            outputView.printPaymentPrice(payment);
+            tableList.changeTablePaymentStatus(table);
         }
     }
 }
