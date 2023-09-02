@@ -19,7 +19,7 @@ public class TableList {
 
     private void addTableWithNumber(int number) {
         Table table = new Table(number);
-        tables.add(table);
+        tables.add(number, table);
         downSide.put(table, List.of("┗", "-" ,"┛"));
     }
 
@@ -34,6 +34,10 @@ public class TableList {
         if(tables.stream().noneMatch(table -> table.getNumber() == number)){
             throw new IllegalArgumentException(ErrorMessage.INPUT_TABLE_NUMBER_ERROR.toString());
         }
+    }
+
+    public Table getTable(Integer number) {
+        return tables.get(number);
     }
 
     @Override
