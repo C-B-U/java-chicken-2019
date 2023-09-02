@@ -12,6 +12,25 @@ public class PosController {
         while (true) {
             outputView.printMainScreen();
             PosFeature feature = inputView.inputWantedFeature();
+            if (feature == PosFeature.PROGRAM_QUIT) {
+                break;
+            }
+            execute(feature);
         }
+    }
+
+    public void execute(PosFeature feature) {
+        if (feature == PosFeature.ORDER_REGISTER) {
+            executeOrderRegister();
+            return;
+        }
+        executePayment();
+    }
+
+    private void executeOrderRegister() {
+    }
+
+
+    private void executePayment() {
     }
 }
