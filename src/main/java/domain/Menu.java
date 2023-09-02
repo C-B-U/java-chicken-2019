@@ -13,6 +13,22 @@ public class Menu {
         this.price = price;
     }
 
+    public boolean isExist(int number) {
+        return number == this.number;
+    }
+
+    public boolean isChicken() {
+        return category.isChicken();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         return category + " " + number + " - " + name + " : " + price + "원";

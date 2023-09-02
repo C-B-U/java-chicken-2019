@@ -1,5 +1,7 @@
 package domain;
 
+import constant.ExceptionMessage;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +18,13 @@ public class MenuRepository {
         menus.add(new Menu(6, "순살치킨", Category.CHICKEN, 17_000));
         menus.add(new Menu(21, "콜라", Category.BEVERAGE, 1_000));
         menus.add(new Menu(22, "사이다", Category.BEVERAGE, 1_000));
+    }
+
+    public static Menu findMenuByNumber(int number) {
+        return menus.stream()
+                .filter((menu) -> menu.isExist(number))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException(ExceptionMessage.NOT_EXIST_MENU.toString()));
     }
 
     public static List<Menu> menus() {
