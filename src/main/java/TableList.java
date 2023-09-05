@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TableList {
     private final List<Table> tables;
@@ -18,8 +19,8 @@ public class TableList {
         tables.add(table);
     }
 
-    public void validateTableNumber(Integer number){
-        if(tables.stream().noneMatch(table -> table.getNumber() == number)){
+    public void validateTableNumber(Integer number) {
+        if (tables.stream().noneMatch(table -> table.getNumber() == number)) {
             throw new IllegalArgumentException(ErrorMessage.INPUT_TABLE_NUMBER_ERROR.toString());
         }
     }

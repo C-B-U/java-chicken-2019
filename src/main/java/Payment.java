@@ -18,7 +18,7 @@ public class Payment {
         this.paymentPrice = initPaymentPrice();
     }
 
-    private int initPaymentPrice(){
+    private int initPaymentPrice() {
         int price, quantity, sum = INIT_VALUE;
         for (Map.Entry<Menu, Integer> entry : orderList.getMenus().entrySet()) {
             price = entry.getKey().getPrice();
@@ -28,7 +28,7 @@ public class Payment {
         return sum;
     }
 
-    public void applyDiscount(int paymentNumber){
+    public void applyDiscount(int paymentNumber) {
         countChickenQuantity();
         defaultDisCount();
         cashDisCount(paymentNumber);
@@ -45,20 +45,20 @@ public class Payment {
     }
 
     private void defaultDisCount() {
-        if (chickenQuantitySum > DISCOUNT_CHICKEN_AMOUNT){
+        if (chickenQuantitySum > DISCOUNT_CHICKEN_AMOUNT) {
             double discount = (chickenQuantitySum / DISCOUNT_CHICKEN_AMOUNT) * TEN_THOUSAND;
             paymentPrice -= discount;
         }
     }
 
     private void cashDisCount(int paymentNumber) {
-        if (PaymentMethod.isCashType(paymentNumber)){
+        if (PaymentMethod.isCashType(paymentNumber)) {
             paymentPrice -= paymentPrice * DISCOUNT_RATE;
         }
     }
 
     @Override
     public String toString() {
-        return (int)paymentPrice + CURRENCY_UNIT;
+        return (int) paymentPrice + CURRENCY_UNIT;
     }
 }

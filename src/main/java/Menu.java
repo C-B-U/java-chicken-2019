@@ -24,7 +24,7 @@ public enum Menu {
         this.price = price;
     }
 
-    public static String showMenu(){
+    public static String showMenu() {
         StringBuilder menuString = new StringBuilder();
         for (Menu menu : values()) {
             menuString.append(String.format("[%s] %d - %s : %d원\n", menu.type, menu.number, menu.name, menu.price));
@@ -32,7 +32,7 @@ public enum Menu {
         return menuString.toString();
     }
 
-    public static Menu getMenu(Integer number){
+    public static Menu getMenu(Integer number) {
         return Arrays.stream(Menu.values())
                 .filter(menu -> menu.number == number)
                 .findFirst()
@@ -40,7 +40,7 @@ public enum Menu {
     }
 
     public static void validateMenuNumber(Integer number) {
-        if (Arrays.stream(Menu.values()).noneMatch(menu -> menu.number == number)){
+        if (Arrays.stream(Menu.values()).noneMatch(menu -> menu.number == number)) {
             throw new IllegalArgumentException(ErrorMessage.INPUT_MENU_NUMBER_ERROR.toString());
         }
     }

@@ -4,33 +4,33 @@ public class InputView {
 
     OutputView outputView = new OutputView();
 
-    public Integer readMainNumber(){
+    public Integer readMainNumber() {
         Integer input;
         do {
             input = inputMainNumber();
-        }while (input == null);
+        } while (input == null);
         return input;
     }
 
-    public Integer inputMainNumber(){
+    public Integer inputMainNumber() {
         outputView.printSelectMainNumber();
         Scanner scanner = new Scanner(System.in);
         Integer number = scanner.nextInt();
         outputView.printEnter();
         try {
-            Main.validateMainListNumber(number);
+            FunctionScreen.validateMainListNumber(number);
             return number;
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             outputView.printErrorMessage(e.getMessage());
             return null;
         }
     }
 
-    public Table readTableNumber(TableList tableList){
+    public Table readTableNumber(TableList tableList) {
         Table table;
         do {
             table = inputTableNumber(tableList);
-        }while (table == null);
+        } while (table == null);
         return table;
     }
 
@@ -42,18 +42,18 @@ public class InputView {
         try {
             tableList.validateTableNumber(number);
             return tableList.getTable(number);
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             outputView.printErrorMessage(e.getMessage());
             return null;
         }
     }
 
-    public Menu readMenuNumber(){
-       Menu menu;
-       do{
-           menu = inputMenuNumber();
-       }while (menu == null);
-       return menu;
+    public Menu readMenuNumber() {
+        Menu menu;
+        do {
+            menu = inputMenuNumber();
+        } while (menu == null);
+        return menu;
     }
 
     private Menu inputMenuNumber() {
@@ -64,17 +64,17 @@ public class InputView {
         try {
             Menu.validateMenuNumber(number);
             return Menu.getMenu(number);
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             outputView.printErrorMessage(e.getMessage());
             return null;
         }
     }
 
-    public Integer readMenuQuantity(OrderList orderList, Menu menu){
+    public Integer readMenuQuantity(OrderList orderList, Menu menu) {
         Integer quantity;
         do {
             quantity = inputMenuQuantity(orderList, menu);
-        }while (quantity == null);
+        } while (quantity == null);
         return quantity;
     }
 
@@ -86,17 +86,17 @@ public class InputView {
         try {
             orderList.validateMenuQuantity(menu, quantity);
             return quantity;
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             outputView.printErrorMessage(e.getMessage());
             return null;
         }
     }
 
-    public Integer readPaymentNumber(int tableNum){
+    public Integer readPaymentNumber(int tableNum) {
         Integer number;
         do {
             number = inputPaymentNumber(tableNum);
-        }while (number == null);
+        } while (number == null);
         return number;
     }
 
@@ -109,7 +109,7 @@ public class InputView {
         try {
             PaymentMethod.validatePaymentNumber(number);
             return number;
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             outputView.printErrorMessage(e.getMessage());
             return null;
         }

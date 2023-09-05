@@ -7,12 +7,12 @@ public class OrderList {
     private static final int DEFAULT_QUANTITY = 0;
     private final EnumMap<Menu, Integer> menus = new EnumMap<>(Menu.class);
 
-    public void saveOrder(Menu menu, int quantity){
+    public void saveOrder(Menu menu, int quantity) {
         menus.put(menu, getTotalQuantity(menu, quantity));
     }
 
-    public void validateMenuQuantity(Menu menu, int quantity){
-        if(quantity < MIN_QUANTITY || getTotalQuantity(menu, quantity) > MAX_QUANTITY){
+    public void validateMenuQuantity(Menu menu, int quantity) {
+        if (quantity < MIN_QUANTITY || getTotalQuantity(menu, quantity) > MAX_QUANTITY) {
             throw new IllegalArgumentException(String.format(ErrorMessage.INPUT_MENU_QUANTITY_ERROR.toString(), MAX_QUANTITY));
         }
     }
@@ -21,7 +21,7 @@ public class OrderList {
         return quantity + menus.getOrDefault(menu, DEFAULT_QUANTITY);
     }
 
-    public void completePayment(){
+    public void completePayment() {
         menus.clear();
     }
 

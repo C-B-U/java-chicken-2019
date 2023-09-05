@@ -1,21 +1,62 @@
 public class PosController {
     private static final int INIT_NUMBER = 0;
     private final PosService posService;
+    private final InputView inputView;
+    private final OutputView outputView;
 
     public PosController() {
         this.posService = new PosService();
+        this.inputView = new InputView();
+        this.outputView = new OutputView();
     }
 
-    public void startProgram(){
+    public void startProgram() {
         int number = INIT_NUMBER;
-        while (Main.isNotProgramExit(number)){
-            number = posService.selectMain();
+        while (FunctionScreen.isNotProgramExit(number)) {
+            number = selectMain();
             executeFunction(number);
         }
     }
 
-    private void executeFunction(int number){
-        posService.registerOrder(number);
-        posService.makePayment(number);
+    private int selectMain() {
+        outputView.printMainProgram();
+        outputView.printMainFunction();
+        return inputView.readMainNumber();
+    }
+
+    private void executeFunction(int number) {
+        registerOrder(number);
+        makePayment(number);
+    }
+
+    public void registerOrder(int number) {
+        if (FunctionScreen.isRegisterOrder(number)) {
+            outputView.printTableStatus(posService.getTableStatus());
+            Table table = inputView.readTableNumber(posService.getTableList());
+
+            outputView.printMenuList();
+            Menu menu = inputView.readMenuNumber();
+
+            int quantity = inputView.readMenuQuantity(table.getOrderList(), menu);
+
+            posService.saveOrderList(table, menu, quantity);
+            posService.updateTableOrderStatus(table);
+        }
+    }
+
+    public void makePayment(int number) {
+        if (FunctionScreen.isMakePayment(number)) {
+            outputView.printTableStatus(posService.getTableStatus());
+            Table table = inputView.readTableNumber(posService.getTableList());
+
+            outputView.printOrderHistory(table.getOrderList());
+            int paymentNumber = inputView.readPaymentNumber(table.getNumber());
+
+            outputView.printPaymentAmount();
+            Payment payment = posService.applyDiscount(table, paymentNumber);
+
+            outputView.printPaymentPrice(payment);
+            posService.updateTablePaymentStatus(table);
+        }
     }
 }
