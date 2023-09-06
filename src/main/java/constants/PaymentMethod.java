@@ -1,3 +1,5 @@
+package constants;
+
 public enum PaymentMethod {
     CREDIT_CARD(1, "신용 카드"),
     CASH(2, "현금");

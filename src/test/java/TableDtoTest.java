@@ -1,3 +1,6 @@
+import domain.Table;
+import domain.TableList;
+import domain.TableStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

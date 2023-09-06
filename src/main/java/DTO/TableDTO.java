@@ -1,3 +1,8 @@
+package DTO;
+
+import domain.TableList;
+import domain.TableStatus;
+
 public class TableDTO {
     private final TableList tableList;
     private final TableStatus tableStatus;

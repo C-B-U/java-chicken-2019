@@ -1,3 +1,9 @@
+package domain;
+
+import constants.ErrorMessage;
+import constants.Menu;
+import constants.ProgressMessage;
+
 import java.util.EnumMap;
 import java.util.Map;
 

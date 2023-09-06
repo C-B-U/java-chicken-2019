@@ -1,3 +1,5 @@
+package constants;
+
 public enum ErrorMessage {
     INPUT_MAIN_NUMBER_ERROR("기능 번호는 %s 부터 %s 입니다."),
     INPUT_TABLE_NUMBER_ERROR("옳지 않는 테이블 번호입니다."),

@@ -1,3 +1,5 @@
+package domain;
+
 public class Table {
 
     private final int number;

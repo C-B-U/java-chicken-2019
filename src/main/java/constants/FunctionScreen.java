@@ -1,3 +1,5 @@
+package constants;
+
 public enum FunctionScreen {
     REGISTER_ORDER(1, "주문등록"),
     MAKE_PAYMENT(2, "결제하기"),

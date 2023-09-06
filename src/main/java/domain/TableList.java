@@ -1,3 +1,7 @@
+package domain;
+
+import constants.ErrorMessage;
+
 import java.util.ArrayList;
 import java.util.List;
 

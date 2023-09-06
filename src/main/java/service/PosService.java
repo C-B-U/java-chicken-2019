@@ -1,3 +1,9 @@
+package service;
+
+import DTO.TableDTO;
+import constants.Menu;
+import domain.*;
+
 public class PosService {
 
     private final TableDTO tableDTO;
@@ -6,7 +12,7 @@ public class PosService {
         this.tableDTO = new TableDTO();
     }
 
-    public void saveOrderList(Table table, Menu menu, int quantity){
+    public void saveOrderList(Table table, Menu menu, int quantity) {
         OrderList orderList = table.getOrderList();
         orderList.saveOrder(menu, quantity);
     }
@@ -16,7 +22,7 @@ public class PosService {
         tableStatus.changeTableOrderStatus(table);
     }
 
-    public void updateTablePaymentStatus(Table table){
+    public void updateTablePaymentStatus(Table table) {
         TableStatus tableStatus = tableDTO.getTableStatus();
         tableStatus.changeTablePaymentStatus(table);
     }
@@ -27,11 +33,11 @@ public class PosService {
         return payment;
     }
 
-    public TableList getTableList(){
+    public TableList getTableList() {
         return tableDTO.getTableList();
     }
 
-    public TableStatus getTableStatus(){
+    public TableStatus getTableStatus() {
         return tableDTO.getTableStatus();
     }
 }

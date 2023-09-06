@@ -1,3 +1,5 @@
+package domain;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +25,7 @@ public class TableStatus {
     }
 
 
-    public void changeTableOrderStatus(Table table){
+    public void changeTableOrderStatus(Table table) {
         downSide.put(table, downElementOrder);
     }
 

@@ -1,3 +1,8 @@
+package domain;
+
+import constants.Menu;
+import constants.PaymentMethod;
+
 import java.util.Map;
 import java.util.Set;
 

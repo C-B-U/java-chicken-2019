@@ -1,3 +1,13 @@
+package view;
+
+import constants.FunctionScreen;
+import constants.Menu;
+import constants.PaymentMethod;
+import constants.ProgressMessage;
+import domain.OrderList;
+import domain.Payment;
+import domain.TableStatus;
+
 public class OutputView {
 
     public void printMainProgram() {

@@ -1,3 +1,5 @@
+package constants;
+
 import java.util.Arrays;
 
 public enum Menu {

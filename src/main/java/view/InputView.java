@@ -1,3 +1,12 @@
+package view;
+
+import constants.FunctionScreen;
+import constants.Menu;
+import constants.PaymentMethod;
+import domain.OrderList;
+import domain.Table;
+import domain.TableList;
+
 import java.util.Scanner;
 
 public class InputView {
