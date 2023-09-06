@@ -9,9 +9,9 @@ public class Payment {
     private static final double DISCOUNT_CHICKEN_AMOUNT = 10.0;
     private static final int TEN_THOUSAND = 10000;
     private static final double DISCOUNT_RATE = 0.05;
-    public final OrderList orderList;
-    public int chickenQuantitySum = 0;
-    public double paymentPrice;
+    private final OrderList orderList;
+    private int chickenQuantitySum = 0;
+    private double paymentPrice;
 
     public Payment(OrderList orderList) {
         this.orderList = orderList;
