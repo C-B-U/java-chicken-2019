@@ -27,4 +27,17 @@ class TableDtoTest {
         Table table = tableList.getTable(1);
         assertThat(table.getNumber()).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("1번 테이블이 결제 되었을 때 세팅이 되는지 확인한다.")
+    void initTableSetting(){
+        TableStatus tableStatus = new TableStatus(tableList);
+        Table table = new Table(1);
+
+        tableStatus.changeTablePaymentStatus(table);
+        assertThat(tableStatus.toString()).contains("┏ - ┓ ┏ - ┓ ┏ - ┓ ┏ - ┓ ┏ - ┓ ┏ - ┓ \n" +
+                "| 1 | | 2 | | 3 | | 5 | | 6 | | 8 | \n" +
+                "┗ - ┛ ┗ - ┛ ┗ - ┛ ┗ - ┛ ┗ - ┛ ┗ - ┛ ");
+    }
 }
+
