@@ -6,8 +6,10 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 class TableDtoTest {
-
     TableList tableList = new TableList();
+    TableStatus tableStatus = new TableStatus(tableList);
+    List<Table> tables = tableList.getTables();
+    Table table = tables.get(0);
 
     @Test
     @DisplayName("초기화된 테이블들이 저장되는지 확인한다.")
@@ -30,14 +32,20 @@ class TableDtoTest {
 
     @Test
     @DisplayName("1번 테이블이 결제 되었을 때 세팅이 되는지 확인한다.")
-    void initTableSetting(){
-        TableStatus tableStatus = new TableStatus(tableList);
-        Table table = new Table(1);
-
+    void paymentTableSetting(){
         tableStatus.changeTablePaymentStatus(table);
         assertThat(tableStatus.toString()).contains("┏ - ┓ ┏ - ┓ ┏ - ┓ ┏ - ┓ ┏ - ┓ ┏ - ┓ \n" +
                 "| 1 | | 2 | | 3 | | 5 | | 6 | | 8 | \n" +
                 "┗ - ┛ ┗ - ┛ ┗ - ┛ ┗ - ┛ ┗ - ┛ ┗ - ┛ ");
+    }
+
+    @Test
+    @DisplayName("1번 테이블이 주문 되었을 때 세팅이 되는지 확인한다.")
+    void orderTableSetting(){
+        tableStatus.changeTableOrderStatus(table);
+        assertThat(tableStatus.toString()).contains("┏ - ┓ ┏ - ┓ ┏ - ┓ ┏ - ┓ ┏ - ┓ ┏ - ┓ \n" +
+                "| 1 | | 2 | | 3 | | 5 | | 6 | | 8 | \n" +
+                "┗ # ┛ ┗ - ┛ ┗ - ┛ ┗ - ┛ ┗ - ┛ ┗ - ┛ ");
     }
 }
 
